@@ -1,0 +1,14 @@
+{
+  "name": "ssr-test2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "nodeScript.js",
+  "devDependencies": {
+    "express": "^4.17.1",
+    "vue": "^2.6.11",
+    "vue-server-renderer": "^2.6.11"
+  },
+  "scripts": {},
+  "author": "",
+  "license": "ISC"
+}
