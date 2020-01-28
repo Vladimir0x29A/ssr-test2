@@ -1,15 +1,19 @@
-const webpack = require('webpack')
+const webpack = require('webpack');
 const merge = require('webpack-merge');
 const base = require('./base');
+const nodeExternals = require('webpack-node-externals');
 const VueSSRServerPlugin = require('vue-server-renderer/server-plugin');
 
-const server = merge(base, {
+module.exports = merge(base, {
   entry: './src/entry-server.js',
   target: 'node',
   output: {
     filename: 'server-bundle.js',
     libraryTarget: 'commonjs2',
   },
+  externals: nodeExternals({
+    whitelist: /\.css$/,
+  }),
   plugins: [
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
@@ -17,8 +21,4 @@ const server = merge(base, {
     }),
     new VueSSRServerPlugin(),
   ],
-});
-
-module.exports = new Promise(resolve => {
-  resolve(server);
 });
