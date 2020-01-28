@@ -3,12 +3,28 @@
   "version": "1.0.0",
   "description": "",
   "main": "nodeScript.js",
-  "devDependencies": {
-    "express": "^4.17.1",
-    "vue": "^2.6.11",
-    "vue-server-renderer": "^2.6.11"
-  },
-  "scripts": {},
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "scripts": {
+    "start": "node ./src/server.js",
+    "build": "npm run client && npm run server",
+    "client": "webpack --config ./build/client.js --progress --display-modules",
+    "server": "webpack --config ./build/server.js --progress --display-modules"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "babel-loader": "^8.0.6",
+    "express": "^4.17.1",
+    "path": "^0.12.7",
+    "vue": "^2.6.11",
+    "vue-loader": "^15.8.3",
+    "vue-router": "^3.1.4",
+    "vue-server-renderer": "^2.6.11",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-merge": "^4.2.2",
+    "webpack-node-externals": "^1.7.2"
+  }
 }
