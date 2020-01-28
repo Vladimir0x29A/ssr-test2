@@ -1,5 +1,8 @@
-const Vue = require('vue');
-const App = require('./components/App.vue');
+import Vue from 'vue';
+import App from "./App.vue";
+
+Vue.config.productionTip = false;
+Vue.config.devtools = true;
 
 export default function createApp() {
   const app = new Vue({
