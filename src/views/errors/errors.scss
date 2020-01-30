@@ -1,0 +1,56 @@
+#page_404 {
+  background-image: url(./../../assets/images/bg-404.jpg);
+  background-position: top center;
+  background-size: cover;
+
+  #app {
+    &::before {
+      content: none;
+    }
+  }
+
+  .container {
+    padding-top: 290px;
+    width: 100%;
+    max-width: 480px;
+    text-align: center;
+    margin: 0 auto;
+
+    @media screen and (max-height: 900px) {
+      padding-top: 25vh;
+    }
+
+    .header {
+      margin-bottom: 20px;
+      font-size: 30px;
+      font-family: gilroy, sans-serif;
+      font-weight: 900;
+      color: #100804;
+    }
+
+    .description {
+      font-size: 18px;
+      font-family: gilroy, sans-serif;
+      font-weight: 500;
+      color: #0f0602;
+    }
+
+    a.link {
+      font-size: 18px;
+      font-family: gilroy, sans-serif;
+      font-weight: 600;
+      color: #920b00;
+    }
+  }
+
+  .logo {
+    position: fixed;
+    bottom: 38px;
+    left: 50%;
+    margin-left: -123px;
+
+    @media screen and (max-height: 600px) {
+      display: none
+    }
+  }
+}

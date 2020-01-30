@@ -1,0 +1,25 @@
+@import "../../styles/global-styles/variables";
+
+.cookies-note {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  border-top: 1px solid cca(white, .1);
+  padding: 10px 20px;
+  font-size: 12px;
+  color: white;
+  background: cca(#18191d, .95);
+
+  &__container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__button {
+    padding: 4px 8px;
+    margin-left: 10px;
+    font-size: 13px;
+  }
+}

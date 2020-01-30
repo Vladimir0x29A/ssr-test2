@@ -1,0 +1,52 @@
+@import "../../styles/global-styles/variables";
+
+
+
+
+.page-notification {
+  margin-top: 20px;
+
+  &__block {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 16px 20px;
+    color: white;
+    background: cca(black, .3);
+
+    &:not(:first-child) {
+      margin-top: 20px;
+    }
+
+    &--pads {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    &--red {
+      border-bottom: 1px solid #eb4b4b;
+    }
+
+    &--blue {
+      border-bottom: 1px solid #0093ff;
+    }
+  }
+
+  &__button {
+    margin-left: 12px;
+  }
+
+  &__cross {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 12px;
+    height: 12px;
+    background: url(./../../assets/images/icons/ico-close.png) no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+    outline: none;
+  }
+}

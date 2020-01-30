@@ -1,0 +1,162 @@
+@import "../../styles/global-styles/variables";
+
+
+.about {
+  width: 100%;
+  min-height: 540px;
+  position: relative;
+  background: #1c1e26 url('../../assets/images/bg-about.jpg') top center no-repeat;
+  background-size: cover;
+  padding: 50px 5%;
+  text-align: center;
+  border-top: 1px solid cca(white, .05);
+  font-weight: 400;
+  font-size: 18px;
+  margin: 0 auto;
+  color: #c9d4e3;
+
+  @media (max-width: 1599px) and (min-width: 1279px) {
+    padding: 40px 5%;
+    min-height: 400px;
+  }
+
+  @media (max-width: 420px) {
+    min-height: 340px;
+    background: #1c1e26 url('../../assets/images/bg-about-m.jpg') top center no-repeat;
+    background-size: cover;
+  }
+
+  .info {
+    @media (max-width: 1599px) and (min-width: 1279px) {
+      font-size: 16px;
+    }
+
+    @media (max-width: 1279px) {
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (max-width: 979px) {
+      width: 90%;
+    }
+
+    h1 {
+      font-size: 50px;
+      letter-spacing: 0;
+      color: #ecc214;
+      margin-bottom: 10px;
+
+      @media (max-width: 1599px) and (min-width: 1279px) {
+        font-size: 42px;
+      }
+
+      @media (max-width: 420px) {
+        font-size: 30px;
+      }
+    }
+
+    p {
+      font-size: 24px;
+      font-weight: 700;
+      color: #cce2ff;
+      margin-bottom: 10px;
+
+      @media (max-width: 1599px) and (min-width: 1279px) {
+        font-size: 20px;
+      }
+
+      @media (max-width: 420px) {
+        font-size: 20px;
+      }
+    }
+
+    .more-info {
+      @media (max-width: 420px) {
+        display: none !important;
+      }
+    }
+  }
+
+  .signin {
+    display: inline-block;
+    border-radius: 5px;
+    padding: 0 20px;
+    margin-top: 20px;
+    font-size: 22px;
+    line-height: 50px;
+    font-weight: 900;
+    color: #1c1e26;
+    background: #ecc214;
+
+    @media (max-width: 1599px) and (min-width: 1279px) {
+      font-size: 22px;
+      margin-top: 20px;
+      line-height: 50px;
+      width: auto;
+      padding:0 20px;
+    }
+
+    @media (max-width: 719px) {
+      width: 100%;
+    }
+
+    @media (max-width: 420px) {
+      margin-top: 0
+    }
+
+    &:hover {
+      background: #d0a801;
+      text-decoration: none;
+
+      img {
+        margin-right: 5px;
+      }
+    }
+
+    img {
+      margin-bottom: -8px;
+      margin-right: 10px;
+      transition: .2s ease-in-out;
+    }
+  }
+
+  .stats {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    color: #cce2ff;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin-top: 40px;
+
+    @media (max-width: 979px) {
+      width: 90%;
+    }
+
+    .stat {
+      display: inline-block;
+      width: 100%;
+      padding-top: 50px;
+      background: url('../../assets/images/icons/ico-about-1.png') top center no-repeat;
+      background-size: 38px 38px;
+
+      @media (max-width: 1599px) and (min-width: 1279px) {
+        padding-top: 40px;
+        background-size: 32px 32px;
+      }
+
+      p {
+        color: #fff;
+        font-size: 50px;
+        font-family: 'Roboto';
+        font-weight: 700;
+        line-height: 1;
+
+        @media (max-width: 1599px) and (min-width: 1279px) {
+          font-size: 40px;
+        }
+      }
+    }
+  }
+}

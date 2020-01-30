@@ -11,7 +11,7 @@ module.exports = {
   mode: isProd ? 'production' : 'development',
   output: {
     path: path.resolve(__dirname, '../dist'),
-    publicPath: '/dist/',
+    publicPath: '/',
     filename: '[name].[chunkhash].js',
   },
   module: {
@@ -38,6 +38,24 @@ module.exports = {
         ]
       },*/
       {
+        test: /\.(png|jpg|gif|svg)$/,
+        loader: 'file-loader',
+        options: {
+          outputPath: 'images',
+          name: '[name].[ext]?[hash]',
+          esModule: false
+        }
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        loader: 'file-loader',
+        options: {
+          outputPath: 'fonts',
+          name: '[name].[ext]?[hash]',
+          esModule: false
+        }
+      },
+      {
         test: /\.scss$/,
         use: isProd
           ? [
@@ -48,7 +66,12 @@ module.exports = {
           ]
           : [
             'vue-style-loader',
-            'css-loader',
+            {
+              loader: 'css-loader',
+              options: {
+                sourceMap: true,
+              },
+            },
             {
               loader: 'sass-loader',
               options: {
@@ -58,6 +81,12 @@ module.exports = {
           ]
       },
     ],
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, '../src'),
+      // 'assets': path.resolve(__dirname, '../src/assets'),
+    },
   },
   plugins: isProd
     ? [

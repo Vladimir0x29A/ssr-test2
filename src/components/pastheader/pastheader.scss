@@ -1,0 +1,420 @@
+@import "../../styles/global-styles/variables";
+
+
+.pastheader {
+  position: relative;
+  border-top: 1px solid rgba(236, 194, 20, .5);
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(26, 28, 36, .8);
+}
+
+
+
+
+.total-stats {
+  $color-rare: #e4ae39;
+  $color-covert: #eb4b4b;
+  $color-classified: #d32ce6;
+  $color-restricted: #8847ff;
+  $color-milspec: #4b69ff;
+  $color-total: #bbb;
+
+  padding: 15px 0;
+
+  @media screen and (max-width: 1599px) {
+    padding: 10px 0 11px;
+  }
+
+  @media screen and (max-width: 420px) {
+    display: none;
+  }
+
+  &__type {
+    position: relative;
+    padding-left: 6%;
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    @media screen and (max-width: 1599px) {
+      font-size: 20px;
+    }
+
+    @media screen and (max-width: 1279px) {
+      text-align: center;
+      padding-left: 0;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 18%;
+      width: 36px;
+      height: 36px;
+      background: no-repeat center;
+      background-size: contain;
+      opacity: .7;
+      transform: translateY(-50%) translateY(-4px);
+
+      @media screen and (max-width: 1599px) {
+        width: 30px;
+        height: 30px;
+        transform: translateY(-50%) translateY(-2px);
+      }
+
+      @media screen and (max-width: 1279px) {
+        display: none;
+      }
+    }
+
+    @mixin grad($color) {
+      background: radial-gradient(cca($color, .2), transparent 50%);
+    }
+
+    &--rare {
+      @include grad($color-rare);
+
+      &::before {
+        background-image: url('../../assets/images/icons/ico-stat-rare.png');
+      }
+    }
+
+    &--covert {
+      @include grad($color-covert);
+
+      &::before {
+        background-image: url('../../assets/images/icons/ico-stat-covert.png');
+      }
+    }
+
+    &--classified {
+      @include grad($color-classified);
+
+      &::before {
+        background-image: url('../../assets/images/icons/ico-stat-classified.png');
+      }
+    }
+
+    &--restricted {
+      @include grad($color-restricted);
+
+      &::before {
+        background-image: url('../../assets/images/icons/ico-stat-restricted.png');
+      }
+    }
+
+    &--milspec {
+      @include grad($color-milspec);
+
+      &::before {
+        background-image: url('../../assets/images/icons/ico-stat-milspec.png');
+      }
+    }
+
+    &--total {
+      @include grad($color-total);
+
+      &::before {
+        background-image: url('../../assets/images/icons/ico-stat-totalop.png');
+      }
+    }
+  }
+
+  &__label {
+    font-size: 15px;
+
+    @media (max-width: 1599px) {
+      font-size: 14px;
+    }
+
+    &--rare {
+      color: $color-rare;
+    }
+
+    &--covert {
+      color: $color-covert;
+    }
+
+    &--classified {
+      color: $color-classified;
+    }
+
+    &--restricted {
+      color: $color-restricted;
+    }
+
+    &--milspec {
+      color: $color-milspec;
+    }
+
+    &--total {
+      color: $color-total;
+    }
+  }
+}
+
+
+
+
+
+.columner-total-stats {
+  $margin: 20px;
+
+  display: flex;
+  flex-wrap: wrap;
+  margin: (-$margin) 0 0;
+
+  &__item {
+    @include width_col(6, 0);
+    margin: $margin 0 0;
+
+    @media (max-width: 979px) {
+      @include width_col(3, 0);
+    }
+
+    @media (max-width: 719px) {
+      @include width_col(2, 0);
+    }
+  }
+}
+
+
+
+
+
+
+.recent-head {
+  $alpha: .5;
+  $grad-color1: #191b24;
+  $grad-color2: #262f44;
+  $grad-border-color1: #222a3a;
+  $grad-border-color2: #29384f;
+
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 35px;
+  line-height: 1;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  background: linear-gradient(to right, $grad-color1, $grad-color2, $grad-color1);
+
+  @media screen and (max-width: 1599px) {
+    height: 30px;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(to right, $grad-border-color1, $grad-border-color2, $grad-border-color1);
+  }
+}
+
+.livefeed {
+  @mixin width($items) {
+    width: floor(10000% / $items) / 100;
+  }
+
+  display: flex;
+  overflow: hidden;
+
+  &__img {
+    max-height: 70px;
+    transform: translateY(-3px);
+    transition: opacity .2s;
+
+    @media screen and (max-width: 1599px) {
+      max-height: 55px;
+      transform: none;
+    }
+  }
+
+  &__labels {
+    max-width: 100%;
+    opacity: 0;
+    transition: opacity .2s;
+  }
+
+  &__center {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    right: 10px;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__label {
+    max-width: 100%;
+    line-height: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-shadow: 0 2px 4px black;
+
+    &:not(:first-child) {
+      margin-top: 3px;
+    }
+
+    &--name {
+      color: white;
+    }
+
+    &--user {
+      color: #ecc214;
+    }
+
+    &--case {
+      color: #6ba8fb;
+    }
+  }
+
+  &__item {
+    position: relative;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include width(10);
+    height: 80px;
+    font-size: 14px;
+    text-align: center;
+    background-size: 100% 100%;
+    overflow: hidden;
+    user-select: none;
+
+    @media screen and (max-width: 1599px) {
+      @include width(8);
+      height: 60px;
+    }
+
+    @media screen and (max-width: 979px) {
+      @include width(5);
+    }
+
+    @media screen and (max-width: 719px) {
+      @include width(3);
+    }
+
+    &:hover {
+      .livefeed {
+        &__img {
+          opacity: .3;
+        }
+
+        &__labels {
+          opacity: 1;
+        }
+      }
+    }
+
+    @mixin shadow($color) {
+      .livefeed__img {
+        filter: drop-shadow(0 0 14px change_color($color, $alpha: .5));
+      }
+    }
+
+    &--classified,
+    &--pink {
+      background-image: url(../../assets/images/items-type/classified.png);
+      @include shadow(#d32ce6);
+    }
+
+    &--covert,
+    &--red {
+      background-image: url(../../assets/images/items-type/covert.png);
+      @include shadow(#eb4b4b);
+    }
+
+    &--rare,
+    &--gold,
+    &--game {
+      background-image: url(../../assets/images/items-type/rare.png);
+    }
+
+    &--milspec,
+    &--dblue,
+    &--steam-card {
+      background-image: url(../../assets/images/items-type/milspec.png);
+      @include shadow(#4b69ff);
+    }
+
+    &--restricted,
+    &--purple {
+      background-image: url(../../assets/images/items-type/restricted.png);
+      @include shadow(#8847ff);
+    }
+
+    &--industrial,
+    &--lblue {
+      background-image: url(../../assets/images/items-type/industrial.png);
+      @include shadow(#5e97d8);
+    }
+
+    &--consumer,
+    &--silver {
+      background-image: url(../../assets/images/items-type/consumer.png);
+    }
+
+    &--contraband {
+      background-image: url(../../assets/images/items-type/contraband.png);
+    }
+
+    &--bitcoin,
+    &--ethereum,
+    &--money,
+    &--green {
+      background-image: url(../../assets/images/items-type/money.png);
+      @include shadow(#4bfe4f);
+    }
+
+    &--base,
+    &--consumer,
+    &--silver {
+      @include shadow(#7a97b2);
+    }
+
+    &--base {
+      background-image: url(../../assets/images/items-type/base.png);
+    }
+
+    &--base-key {
+      background-image: url(../../assets/images/items-type/base-key.png);
+    }
+  }
+
+  &__stattrak {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 30px;
+    height: 15px;
+  }
+
+  &-leave,
+  &-enter {
+    &-active {
+      transition: none .5s;
+      transition-property: transform;
+    }
+  }
+
+  &-enter {
+    transform: translate(-70%);
+  }
+
+  &-move {
+    transition: transform .5s;
+  }
+}

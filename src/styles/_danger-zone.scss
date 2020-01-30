@@ -1,0 +1,193 @@
+@import "../../styles/global-styles/variables";
+
+
+@font-face {
+  font-family: russo one;
+  src: url(#{$base-url}/assets/fonts/Russo_One.ttf)
+}
+
+main {
+  &.danger-zone {
+    background-image: url(#{$base-url}/assets/images/danger_zone/bg.png);
+    background-color: #0c0807;
+    background-size: 1920px auto;
+    background-position: center top;
+    background-repeat: no-repeat;
+    margin-top: 50px;
+    padding-bottom: 100px;
+  }
+}
+
+.danger-zone {
+  h1 {
+    margin-top: 80px;
+  }
+
+  h1, h2 {
+    font-family: russo one, sans-serif;
+    background: url(#{$base-url}/assets/images/danger_zone/text-bg.png);
+    color: #8cf8ff;
+    font-size: 70px;
+    text-align: center;
+    text-transform: uppercase;
+    position: relative;
+
+    &:after {
+      background: 0 0;
+      content: attr(data-text);
+      left: 0;
+      position: absolute;
+      text-shadow: 0 0 10px #000;
+      top: 0;
+      z-index: -1;
+    }
+  }
+
+  h3 {
+    font-family: gilroy, sans-serif;
+    font-weight: 700;
+    color: #fff;
+    font-size: 30px;
+    text-shadow: 0 0 20px #000;
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .cases_1 {
+    margin-bottom: 200px;
+  }
+
+  .cases {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .case {
+    width: 32%;
+    background-color: rgba(11, 0, 0, .95);
+    border-radius: 15px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    min-width: 300px;
+    text-align: center;
+    margin-top: 15px;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+
+    &.large {
+      width: 49%;
+      min-width: 500px;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    .name {
+      color: #cce2ff;
+      font-family: roboto, sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      text-transform: uppercase;
+    }
+
+    .btn {
+      background-color: transparent;
+      color: #e8c235;
+      border: 1px solid #e8c235;
+      border-radius: 16px;
+      font-size: 20px;
+      font-family: gilroy, sans-serif;
+      font-weight: 700;
+      padding: 9px 22px;
+      display: block;
+      width: auto;
+      margin: 15px auto 0;
+    }
+
+    .info {
+      position: static;
+      bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .thumb {
+      height: auto;
+      line-height: normal;
+      width: 50%;
+      margin: 0 auto;
+    }
+
+    .new {
+      position: absolute;
+      top: -20px;
+      right: -40px;
+      display: block;
+      width: 100px;
+      height: 60px;
+      background-color: #325524;
+      color: #fff;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      transform: rotateZ(45deg);
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 88px;
+    }
+
+    .sale {
+      position: absolute;
+      top: -20px;
+      right: -40px;
+      display: block;
+      width: 100px;
+      height: 60px;
+      background-color: #8b100b;
+      color: #fff;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      transform: rotateZ(45deg);
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 88px;
+      background: url(#{$base-url}/assets/images/danger_zone/text-bg.png);
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .danger-zone {
+    h1 {
+      font-size: 50px !important;
+    }
+
+    h2 {
+      font-size: 40px !important;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  main.danger-zone {
+    .case {
+      width: 100%;
+      min-width: 100%;
+
+      &.large {
+        width: 100%;
+        min-width: 100%;
+      }
+    }
+  }
+}

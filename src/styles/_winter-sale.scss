@@ -1,0 +1,158 @@
+@import "../../styles/global-styles/variables";
+
+
+
+@font-face {
+  font-family: beaufort;
+  src: url(#{$base-url}/assets/fonts/Beaufort.ttf)
+}
+
+@font-face {
+  font-family: beaufort-bold;
+  src: url(#{$base-url}/assets/fonts/Beaufort-Bold.ttf)
+}
+
+@font-face {
+  font-family: chinacyr;
+  src: url(#{$base-url}/assets/fonts/ChinaCyr.ttf)
+}
+
+main {
+  &.winter-sale {
+    background-image: url(#{$base-url}/assets/images/winter-sale/china-bg.jpg);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    margin-top: 50px;
+    padding-bottom: 100px;
+  }
+}
+
+.winter-sale {
+  h1, h2 {
+    font-family: chinacyr, sans-serif;
+    background: -webkit-linear-gradient(#ffca77, #d55122);
+    color: #8cf8ff;
+    font-size: 80px;
+    text-align: center;
+    margin-top: 60px;
+    text-transform: uppercase;
+    position: relative;
+
+    &:after {
+      background: 0 0;
+      content: attr(data-text);
+      left: 0;
+      position: absolute;
+      text-shadow: 0 0 10px #000;
+      top: 0;
+      z-index: -1;
+    }
+  }
+
+  h3 {
+    font-family: gilroy, sans-serif;
+    font-weight: 700;
+    color: #fff;
+    font-size: 30px;
+    text-shadow: 0 0 20px #000;
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .cases {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 30px;
+  }
+
+  .case {
+    width: 32%;
+    background-color: rgba(11, 0, 0, .95);
+    border-radius: 15px;
+    box-shadow: 0 0 20px #fec67e;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+    margin-top: 15px;
+    height: auto;
+    position: relative;
+
+    &.large {
+      width: 49%;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    .name {
+      color: #cce2ff;
+      font-family: roboto, sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      text-transform: uppercase;
+    }
+
+    .btn {
+      background-color: transparent;
+      color: #e8c235;
+      border: 1px solid #e8c235;
+      border-radius: 16px;
+      font-size: 20px;
+      font-family: gilroy, sans-serif;
+      font-weight: 700;
+      padding: 9px 22px;
+      display: block;
+      width: auto;
+      margin: 15px auto 0;
+    }
+
+    .info {
+      position: static;
+      bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .thumb {
+      height: auto;
+      line-height: normal;
+      width: 50%;
+      margin: 0 auto;
+    }
+
+    .new {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      display: block;
+      width: 60px;
+      height: 60px;
+      background-image: url(#{$base-url}/assets/images/winter-sale/new.png);
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .sale {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      display: block;
+      width: 90px;
+      height: 90px;
+      background-image: url(#{$base-url}/assets/images/winter-sale/sale.png);
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      font-family: beaufort-bold, sans-serif;
+      color: #fff;
+      font-size: 24px;
+      transform: rotateZ(30deg);
+      line-height: 90px;
+      text-align: center;
+    }
+  }
+}

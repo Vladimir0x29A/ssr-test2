@@ -1,0 +1,68 @@
+@import "../../styles/global-styles/variables";
+
+.swap-slider {
+  $margin: 10px;
+
+  position: relative;
+  width: calc(100% - 40px);
+  margin: 0 auto;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: $margin;
+    background: linear-gradient(to left, #2b2d36, transparent);
+    pointer-events: none;
+  }
+
+  &::before {
+    left: (-$margin);
+    transform: scale(-1);
+    z-index: 1;
+  }
+
+  &::after {
+    right: (-$margin);
+  }
+
+  &__container {
+    margin: (-$margin);
+  }
+
+  &__item {
+    padding: $margin;
+  }
+
+  &__skin {
+    height: 130px;
+  }
+
+  .VueCarousel-navigation-button {
+    background: url("../../assets/images/icons/next-icon.png") no-repeat center;
+    background-size: contain;
+    filter: brightness(1.3);
+    opacity: .8;
+    transition: opacity .2s;
+
+    &:focus {
+      outline: none;
+    }
+
+    &.VueCarousel-navigation--disabled {
+      opacity: .3;
+    }
+
+    &:not(.VueCarousel-navigation--disabled) {
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    &.VueCarousel-navigation-prev {
+      transform: translate(-100%, -50%) scale(-1);
+    }
+  }
+}

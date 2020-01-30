@@ -1,0 +1,123 @@
+.skin-manager {
+  $height: 26px;
+
+  border-top: 1px solid change_color(white, $alpha: .1);
+  border-radius: 0 0 5px 5px;
+  padding: 10px;
+  background: #282c38;
+
+  @media (max-width: 1599px) and (min-width: 1279px) {
+    padding: 5px;
+  }
+
+  > :not(:first-child) {
+    margin-top: 6px;
+  }
+
+  &__item {
+    height: $height;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: #1c1e26;
+  }
+
+  &__price {
+    font-size: 14px;
+    line-height: $height;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  &__label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__sold {
+    $color: #ecc214;
+
+    border: 1px solid change_color($color, $alpha: .1);
+    background: change_color($color, $alpha: .3);
+  }
+
+  &__accepted {
+    $color: #66b001;
+
+    border: 1px solid change_color($color, $alpha: .1);
+    background: change_color($color, $alpha: .3);
+  }
+
+  &__swapped {
+    $color: #dc5960;
+
+    border: 1px solid change_color($color, $alpha: .1);
+    background: change_color($color, $alpha: .3);
+  }
+
+  &__sent {
+    $color: #ecc214;
+
+    border: 1px solid change_color($color, $alpha: .1);
+    background: change_color($color, $alpha: .3);
+  }
+}
+
+.skin-manager-tooltip {
+  position: relative;
+
+  &__tooltip {
+    position: absolute;
+    right: -1px;
+    left: -1px;
+    bottom: calc(100% + 6px);
+    z-index: 1;
+    border-bottom: 1px solid #ecc214;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 12px;
+    text-align: center;
+    color: #cce2ff;
+    background-color: #20222b;
+    transition: none .3s;
+    transition-property: opacity, transform;
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  &__hoverable {
+    &:hover {
+      ~ .skin-manager-tooltip {
+        &__tooltip {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    }
+  }
+}
+
+.skin-manager-icon {
+  position: relative;
+  margin-left: 8px;
+
+  &--opskins {
+    padding: 0 3px;
+    margin-left: 5px;
+  }
+
+  &__icon {
+    display: block;
+    height: 20px;
+  }
+}

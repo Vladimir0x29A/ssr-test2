@@ -1,0 +1,42 @@
+.howitworks {
+  &__head {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    cursor: pointer;
+  }
+
+  &__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 10px;
+    background: #ecc214;
+
+    svg {
+      fill: #1c1e26;
+    }
+  }
+
+  &__title {
+    display: inline-block;
+    border-bottom: 1px dotted #ecc214;
+    font-size: 22px;
+    line-height: 1;
+    text-transform: uppercase;
+    color: #ecc214;
+  }
+
+  &__paragraphs {
+    padding: 0 20px 20px 50px;
+  }
+
+  &__paragraph {
+    &:not(:first-child) {
+      margin-top: 20px;
+    }
+  }
+}

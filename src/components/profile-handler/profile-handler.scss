@@ -1,0 +1,182 @@
+.logged {
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  text-align: left;
+  background: #1c1e26;
+
+  &:before {
+    display: none;
+  }
+
+  &__notification-button {
+    position: relative;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      border-radius: 50%;
+      opacity: 0;
+      transform: translate(50%, -50%);
+      transition: none .2s;
+      transition-property: opacity, transform;
+    }
+
+    &::before {
+      z-index: 1;
+      width: 14px;
+      height: 14px;
+      background-color: #1c1e26;
+    }
+
+    &::after {
+      z-index: 1;
+      width: 8px;
+      height: 8px;
+      background-color: #128ae3;
+    }
+
+    &:hover {
+      svg {
+        opacity: 1;
+      }
+    }
+
+    svg {
+      display: block;
+      opacity: .5;
+      transition: none .2s;
+      transition-property: opacity, transform;
+    }
+
+    &--active {
+      &::before,
+      &::after {
+        opacity: 1;
+      }
+
+      svg {
+        opacity: 1;
+        transform: rotate(-17deg);
+      }
+    }
+  }
+
+  .user-info {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background: 0 0;
+    border-bottom: none;
+    position: relative;
+    max-width: 300px;
+    display: inline-block;
+    color: #cce2ff;
+
+    a {
+      color: #cce2ff;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .logout {
+    width: 20px;
+    height: 20px;
+    background: url(./../../assets/images/icons/logout-icon.png) center center no-repeat;
+    background-size: contain;
+    opacity: .5;
+    display: inline-block;
+    margin: 5px 0;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__notification-button,
+  .logout {
+    margin-left: 20px;
+  }
+
+  .money {
+    color: #ecc214;
+    font-size: 18px;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 10px;
+
+    &:hover {
+      text-decoration: none;
+      color: #ffcd00;
+    }
+
+    .btn {
+      width: auto;
+      font-size: 16px;
+      margin-left: 8px;
+      line-height: 30px;
+      padding: 0 10px;
+    }
+  }
+}
+
+.login {
+  display: inline-block;
+  float: right;
+  border-radius: 8px;
+  background: linear-gradient(to bottom, #7eb23a, #4c6d1f);
+  padding: 10px 15px;
+  text-align: left;
+  font-family: roboto;
+  font-weight: 500;
+  color: #fff;
+  font-size: 14px;
+  border-bottom: 1px solid #7ba635;
+  text-decoration: none !important;
+}
+
+.login--preheader {
+  padding: 6px 10px;
+
+  @media screen and (max-width: 719px) {
+    display: none;
+  }
+}
+
+.logged--preheader {
+  @media screen and (max-width: 719px) {
+    display: none;
+  }
+
+  .user-info {
+    line-height: 1;
+  }
+
+  .money {
+    display: flex;
+    align-items: center;
+
+    .btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 21px;
+      padding-top: 1px;
+      box-sizing: border-box;
+      line-height: 1;
+    }
+  }
+}
+
+.logged-avatar {
+  border-radius: 50%;
+  width: 30px;
+  vertical-align: middle
+}

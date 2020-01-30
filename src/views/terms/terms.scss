@@ -1,0 +1,39 @@
+.terms {
+  &__item {
+    padding-top: 30px;
+
+    &:not(:first-child) {
+      border-top: 2px solid #ecc214;
+      margin-top: 30px;
+    }
+  }
+
+  &__title,
+  &__strong {
+    font-weight: 700;
+    color: white;
+  }
+
+  &__list,
+  &__paragraph {
+    margin-top: 20px;
+  }
+
+  &__list {
+    padding-left: 40px;
+    color: #888;
+    list-style-type: lower-latin;
+  }
+
+  &__list-item {
+    padding-left: 5px;
+
+    &:not(:first-child) {
+      margin-top: 10px;
+    }
+  }
+
+  &__list-item-content {
+    color: #cce2ff;
+  }
+}

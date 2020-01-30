@@ -1,49 +1,39 @@
 <template>
   <div id="app">
-    <div>App component</div>
-    <div><button @click="val = !val">button</button></div>
-    <div class="block" v-if="val">shown block</div>
+    <template v-if="!isErrorPage">
+      <router-view/>
+      <MainFooter/>
+    </template>
 
-    <div><router-link to="/first">Link 1</router-link></div>
-    <div><router-link to="/second">Link 2</router-link></div>
-    <router-view/>
-
-    <div class="store-val">Store value: {{storeVal}}</div>
-    <div><button @click="updateStoreVal(!storeVal)">Change store value</button></div>
+    <Errors v-else/>
   </div>
 </template>
 
 <script>
   import {mapState, mapMutations} from 'vuex';
 
+  import Errors from "./views/errors/Errors.vue";
+  import MainFooter from "./components/footer/MainFooter.vue";
+
   export default {
     name: "App",
+    components: {
+      MainFooter,
+      Errors,
+    },
     data: () => ({
       val: true,
     }),
     computed: {
       ...mapState([
-        'storeVal',
+        'isErrorPage',
       ]),
     },
     methods: {
-      ...mapMutations([
-        'updateStoreVal',
-      ]),
     },
-    /*created() {
-      console.log('Route:', this.$route);
-    },*/
   }
 </script>
 
 <style lang="scss">
-  .block {
-    font-weight: 700;
-    color: #ff4f57;
-  }
-
-  .store-val {
-    font-weight: 700;
-  }
+  @import "styles/index";
 </style>

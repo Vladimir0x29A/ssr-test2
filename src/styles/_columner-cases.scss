@@ -1,0 +1,41 @@
+.columner-cases {
+  $margin: 15px;
+  $margin-2: 10px;
+  $margin-v: 20px;
+  $margin-v-2: 10px;
+
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: (-$margin-v);
+
+  @media (max-width: 1599px) and (min-width: 1279px) {
+    margin-top: (-$margin-v-2);
+  }
+
+  @media (max-width: 420px) {
+    max-width: 180px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__item {
+    @include width_col(5, 0);
+    margin-top: ($margin-v);
+
+    @media (max-width: 1599px) and (min-width: 1279px) {
+      margin-top: ($margin-v-2);
+    }
+
+    @media (max-width: 1279px) {
+      @include width_col(3, 0);
+    }
+
+    @media (max-width: 979px) {
+      @include width_col(2, 0);
+    }
+
+    @media (max-width: 420px) {
+      @include width_col(1, 0);
+    }
+  }
+}

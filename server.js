@@ -66,6 +66,9 @@ function render(req, res) {
 
   renderer.renderToString(context, (err, html) => {
     if (err) return handleError(err);
+    if (context.state.isErrorPage) {
+      res.status(404).send(html);
+    }
     res.send(html);
   });
 }

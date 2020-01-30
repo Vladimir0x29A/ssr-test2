@@ -1,0 +1,105 @@
+.t-row {
+  width: 100%;
+  background: rgba(0, 0, 0, .1);
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid #252833;
+
+  @media (max-width: 1599px) and (min-width: 1279px) {
+    padding: 0 10px;
+  }
+
+  &.t-head {
+    font-weight: 300;
+    background: rgba(0, 0, 0, .3);
+    border-radius: 5px 5px 0 0;
+  }
+
+  &:hover {
+    background: rgba(0, 0, 0, .3);
+    border-radius: 0;
+  }
+
+  .t-col {
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+
+    @media (max-width: 719px) {
+      width: 100% !important;
+      text-align: center !important;
+      line-height: 40px !important;
+    }
+
+    &.avatar {
+      margin-right: 5px;
+
+      img {
+        border-radius: 50%;
+        width: 30px;
+        vertical-align: middle;
+      }
+    }
+
+    &.item-image {
+      width: 60px;
+      max-height: 30px;
+      float: right;
+      text-align: center;
+
+      img {
+        height: 40px;
+        margin-top: -5px;
+      }
+
+      @mixin radGrad($color) {
+        background: radial-gradient(change_color($color, $alpha: .8), change_color($color, $alpha: .1) 50%, transparent 70%);
+      }
+
+      &.contraband,
+      &.base-key,
+      &.gold,
+      &.game {
+        @include radGrad(#ec9b1e);
+      }
+
+      &.industrial,
+      &.lblue,
+      &.base {
+        @include radGrad(#5e97d8);
+      }
+
+      &.classified,
+      &.pink {
+        @include radGrad(#d32ce6);
+      }
+
+      &.covert,
+      &.red {
+        @include radGrad(#eb4b4b);
+      }
+
+      &.dblue,
+      &.steam-card {
+        @include radGrad(#4b69ff);
+      }
+
+      &.restricted,
+      &.purple {
+        @include radGrad(#8847ff);
+      }
+
+      &.consumer,
+      &.silver {
+        @include radGrad(#7a97b2);
+      }
+
+      &.ethereum,
+      &.bitcoin,
+      &.money,
+      &.green {
+        @include radGrad(#4bfe4f);
+      }
+    }
+  }
+}

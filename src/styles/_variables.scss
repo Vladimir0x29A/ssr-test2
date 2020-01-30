@@ -1,0 +1,70 @@
+//$base-url: "http://csgo.kobal.cc";
+$base-url: "";
+
+
+@mixin transition($time: .2s, $function: linear, $element: all){
+  transition: $element $time $function
+}
+
+@mixin rem($fz) {
+  font-size: $fz / 16 + rem;
+}
+
+@mixin fluid($property, $maxScreen, $minScreen, $maxValue, $minValue, $flag_before: true, $flag_after: true) {
+  @if $flag_before == true {
+    #{$property}: $maxValue;
+  }
+  @media screen and (max-width: $maxScreen) {
+    $m: ($maxValue - $minValue) / ($maxScreen - $minScreen);
+    $b: round($minValue - $m * $minScreen);
+    $temp: round($m * 100vw * 100) / 100;
+    @if $b < 0 {
+      #{$property}: calc(#{$temp} - #{abs($b)});
+    }
+    @else if $b > 0 {
+      #{$property}: calc(#{$temp} + #{$b});
+    }
+    @else if $b == 0 {
+      #{$property}: $temp;
+    }
+  }
+  @if $flag_after == true {
+    @media screen and (max-width: $minScreen) {
+      #{$property}: $minValue;
+    }
+  }
+}
+
+@mixin width_col($item_count, $margin) {
+  @if $margin == 0 {
+    width: floor(10000% / $item_count) / 100;
+  }
+  @else {
+    width: calc(#{floor(10000% / $item_count) / 100} - #{$margin * 2});
+  }
+}
+
+@function cca($color, $alpha) {
+  @return change_color($color, $alpha: $alpha);
+}
+
+%block-style-padding {
+  $padding-v: 20px;
+
+  padding: $padding-v 3%;
+
+  @media screen and (max-width: 719px) {
+    padding: $padding-v;
+  }
+}
+
+
+
+
+$mobile_header_height: 70px;
+
+
+
+
+
+$break_preheader: 719px;

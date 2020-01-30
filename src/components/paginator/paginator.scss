@@ -1,0 +1,142 @@
+.paginator {
+  $bdrs: 5px;
+  $margin: 2px;
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    margin: 0 (-$margin);
+
+    &--desktop {
+      @media screen and (max-width: 979px) {
+        display: none;
+      }
+    }
+
+    &--mobile {
+      display: none;
+
+      @media screen and (max-width: 979px) {
+        display: flex;
+      }
+    }
+  }
+
+  &__item {
+    width: 50px;
+    height: 50px;
+    margin: 0 $margin;
+    user-select: none;
+  }
+
+  &__button {
+    border-radius: $bdrs;
+    font-size: 16px;
+    color: #ecc214;
+    background-color: change_color(white, $alpha: .02);
+    outline: none;
+  }
+
+  &__number {
+    position: relative;
+    cursor: pointer;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: $bdrs;
+      opacity: 0;
+      transition: opacity .2s;
+    }
+
+    &::before {
+      border: 2px solid #ecc214;
+    }
+
+    &::after {
+      background-color: #ecc214;
+    }
+
+    &:hover {
+      &::before {
+        opacity: 1;
+      }
+    }
+
+    &--active {
+      cursor: default;
+
+      &::after {
+        opacity: 1;
+      }
+
+      .paginator__number-span {
+        filter: brightness(0);
+      }
+    }
+  }
+
+  &__number-span {
+    position: relative;
+    z-index: 1;
+    transition: filter .2s;
+  }
+
+  &__arrows {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+
+    &[disabled] {
+      &::before {
+        filter: grayscale(100%);
+      }
+    }
+
+    &:not([disabled]) {
+      cursor: pointer;
+
+      &:hover {
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+
+    &--prev {
+      &::before {
+        transform: scale(-1);
+      }
+    }
+
+    &::before {
+      content: url("../../assets/images/icons/next-icon.png");
+      opacity: .7;
+      transition: none .2s;
+      transition-property: opacity, filter;
+    }
+  }
+
+  &-leave-active {
+    position: absolute;
+  }
+
+  &-move,
+  &-leave-active,
+  &-enter-active {
+    transition: none .2s;
+    transition-property: opacity, transform;
+  }
+
+  &-leave-to,
+  &-enter {
+    opacity: 0;
+    transform: scale(.5);
+  }
+}

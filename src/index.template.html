@@ -4,9 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>{{title}}</title>
+  {{{ !state.isErrorPage && meta && meta.inject().title ? meta.inject().title.text() : '' }}}
+  {{{ !state.isErrorPage && meta && meta.inject().meta ? meta.inject().meta.text() : '' }}}
+  {{{ !state.isErrorPage && meta && meta.inject().link ? meta.inject().link.text() : '' }}}
 </head>
-<body>
+<body {{state.isErrorPage ? 'id=page_404' : ''}}>
 <!--vue-ssr-outlet-->
 </body>
 </html>

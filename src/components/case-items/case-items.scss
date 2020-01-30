@@ -1,0 +1,94 @@
+@import "../../styles/global-styles/variables";
+
+
+.case-items2 {
+  padding-bottom: 30px;
+
+  &__header-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  &__header {
+    font-size: 22px;
+    line-height: 1;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #cce2ff;
+  }
+
+  &__share-container {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    font-weight: 700;
+  }
+
+  &__share {
+    margin-left: 10px;
+  }
+
+  &__colored {
+    color: #eb4b4b;
+
+    &--green {
+      color: #41d941;
+    }
+  }
+
+  &__skin {
+    height: 130px;
+
+    @media (max-width: 1599px) and (min-width: 1279px) {
+      height: 120px;
+    }
+
+    @media (max-width: 1279px) {
+      height: 130px;
+    }
+  }
+}
+
+
+
+
+.columner-skins-case {
+  $margin: 10px;
+  $margin-2: 7px;
+
+  display: flex;
+  flex-wrap: wrap;
+  margin: (-$margin * 2) (-$margin) 0;
+
+  @media (max-width: 1599px) and (min-width: 1279px) {
+    margin: (-$margin-2 * 2) (-$margin-2) 0;
+  }
+
+  @media (max-width: 1279px) {
+    margin: (-$margin * 2) (-$margin) 0;
+  }
+
+  &__item {
+    @include width_col(6, $margin);
+    margin: ($margin * 2) $margin 0;
+
+    @media (max-width: 1599px) and (min-width: 1279px) {
+      @include width_col(6, $margin-2);
+      margin: ($margin-2 * 2) $margin-2 0;
+    }
+
+    @media (max-width: 1279px) {
+      @include width_col(5, $margin);
+      margin: ($margin * 2) $margin 0;
+    }
+
+    @media (max-width: 979px) {
+      @include width_col(4, $margin);
+    }
+
+    @media (max-width: 719px) {
+      @include width_col(2, $margin);
+    }
+  }
+}

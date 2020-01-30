@@ -1,0 +1,87 @@
+@import "./../../styles/global-styles/variables";
+
+.fix-profile {
+  position: absolute;
+  top: $mobile_header_height;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  display: none;
+  height: $mobile_header_height;
+  border-bottom: 1px solid #2b2d36;
+  background-color: #1c1e26;
+
+  @media screen and (max-width: $break_preheader) {
+    display: flex;
+  }
+
+  &--fixed {
+    position: fixed;
+    top: 0;
+  }
+
+  &__width-limiter {
+    display: flex;
+    justify-content: flex-end;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  &__logged {
+    width: 100%;
+    background-color: transparent;
+
+    /*.logged__notification-button,
+    .logout {
+      margin-left: 16px;
+    }*/
+
+    .money {
+      display: flex;
+      align-items: center;
+      margin-right: auto;
+
+      .btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 24px;
+        height: 24px;
+        padding: 0;
+        margin: 0;
+        margin-bottom: 2px;
+
+        svg {
+          fill: #1c1e26
+        }
+      }
+
+      &__value {
+        margin-right: 8px;
+      }
+    }
+  }
+
+  &__login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    margin: 10px 0;
+    font-size: 18px;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    &::before {
+      content: '';
+      width: 30px;
+      height: 30px;
+      margin-right: 16px;
+      background: url(./../../assets/images/icon-steam.png) center no-repeat;
+      background-size: 30px 30px;
+    }
+  }
+}
